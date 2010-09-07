@@ -9,7 +9,7 @@ setup(name='nagifo',
       long_description="""\
 Nagios notifications through notifo, plus a small webapp to acknowledge the alert""",
       classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='notifo flask nagios',
+      keywords='notifo flask nagios nagifo',
       author='Dominic LoBue',
       author_email='dominic.lobue@gmail.com',
       url='',
@@ -19,6 +19,9 @@ Nagios notifications through notifo, plus a small webapp to acknowledge the aler
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
+          'notifo',
+          'flask',
+          'nagext',
       ],
       entry_points="""
       # -*- Entry points: -*-
