@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+nagifo/__init__.py
+nagifo.egg-info/PKG-INFO
+nagifo.egg-info/SOURCES.txt
+nagifo.egg-info/dependency_links.txt
+nagifo.egg-info/entry_points.txt
+nagifo.egg-info/not-zip-safe
+nagifo.egg-info/top_level.txt

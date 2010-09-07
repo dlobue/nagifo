@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+
+from nagifo import notifo_notify
+from sys import argv, exit
+
+
+if __name__ == '__main__':
+    if len(argv) < 8:
+        print("Improper usage. This command is meant to be run by nagios."
+              "Refer to README for usage")
+        exit(1)
+    notifo_notify(*argv[1:])
+

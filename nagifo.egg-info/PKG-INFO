@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: nagifo
+Version: 0.1dev
+Summary: Nagios notifications through notifo
+Home-page: UNKNOWN
+Author: Dominic LoBue
+Author-email: dominic.lobue@gmail.com
+License: GPLv3
+Description: Nagios notifications through notifo, plus a small webapp to acknowledge the alert
+Keywords: notifo flask nagios
+Platform: UNKNOWN

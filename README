@@ -1,0 +1,22 @@
+Configuration is pretty simple. Copy the notify_via_notifo script into the nagios bin directory (whereever that may be), and add the below command definition to the nagios configuration:
+
+define command{
+        command_name    notify-by-notifo
+        command_line    /usr/local/nagios/bin/notify_via_notifo \
+          "$CONTACTADDRESS1$" "$CONTACTADDRESS2$" "$NOTIFICATIONTYPE$" "$HOSTNAME$"\
+          "$SERVICESTATE$" "$SERVICEDESC$" "$SERVICEOUTPUT$ $LONGDATETIME$"
+        }
+
+
+Then for each contact that should be notified over notifo, configure the contact like the example below. The important fields to note are address1, address2, and service_notification_commands.
+
+define contact{
+        contact_name                    jdoe
+        use                             generic-contact
+        alias                           John Doe
+        email                           jdoe@company.com
+        address1                        <notifo-username>
+        address2                        <notifo-secret-key>
+        service_notification_commands   +notify-by-notifo
+        }
+
