@@ -16,6 +16,10 @@ Nagios notifications through notifo, plus a small webapp to acknowledge the aler
       license='GPLv3',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
+      package_data={
+          '': ['nagifo.conf', 'nagifo.wsgi'],
+      },
+      scripts = ['bin/nagifo'],
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
