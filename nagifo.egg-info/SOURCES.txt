@@ -1,9 +1,16 @@
-setup.cfg
+MANIFEST.in
+README
+nagifo.conf
+nagifo.wsgi
 setup.py
+bin/nagifo
 nagifo/__init__.py
+nagifo/nagacknowledge.py
+nagifo/nagifo.py
 nagifo.egg-info/PKG-INFO
 nagifo.egg-info/SOURCES.txt
 nagifo.egg-info/dependency_links.txt
 nagifo.egg-info/entry_points.txt
 nagifo.egg-info/not-zip-safe
+nagifo.egg-info/requires.txt
 nagifo.egg-info/top_level.txt

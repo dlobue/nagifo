@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.1'
+version = '0.1.3'
 
 setup(name='nagifo',
       version=version,
@@ -12,20 +12,20 @@ Nagios notifications through notifo, plus a small webapp to acknowledge the aler
       keywords='notifo flask nagios nagifo',
       author='Dominic LoBue',
       author_email='dominic.lobue@gmail.com',
-      url='',
+      url='http://github.com/dlobue/nagifo',
       license='GPLv3',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
-      package_data={
-          '': ['nagifo.conf', 'nagifo.wsgi'],
-      },
+      data_files=[
+          ('config', ['nagifo.wsgi', 'nagifo.conf']),
+      ],
       scripts = ['bin/nagifo'],
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
           'notifo',
           'flask',
-          'nagext',
+          'python-nagext',
       ],
       entry_points="""
       # -*- Entry points: -*-
