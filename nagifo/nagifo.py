@@ -5,16 +5,20 @@ import hmac
 import socket
 import fcntl
 import struct
+from os.path import exists
 
 from ConfigParser import SafeConfigParser
 
-config = SafeConfigParser()
-config.read('/etc/nagifo.conf')
+if exists('/etc/nagifo.conf'):
+    config = SafeConfigParser()
+    config.read('/etc/nagifo.conf')
 
-hostname = config.get('default', 'external_hostname')
-port = config.getint('default', 'port')
-cmdfile = config.get('default', 'nagios_cmdfile')
-secret_key = config.get('default', 'secret_key')
+    external_url = config.get('default', 'external_url')
+    cmdfile = config.get('default', 'nagios_cmdfile')
+    secret_key = config.get('default', 'secret_key')
+else:
+    config = None
+
 
 
 def get_ip_address(ifname):
@@ -40,10 +44,12 @@ def notifo_notify(user, key, ntype, host, state, service_desc, rest):
     title = '%s %s' % (ntype, host)
     msg = '%s - %s, %s' % (state, service_desc, rest)
     
-    sechash = generate_hash(user, host, service_desc)
-    
-    ackurl = 'http://%s/%s' % (hostname, b64enc('/'.join([sechash, user, host,
-                                                          service_desc])))
+    if config is not None:
+        sechash = generate_hash(user, host, service_desc)
+        ackurl = 'http://%s/%s' % (external_url, b64enc('/'.join([sechash, user, host,
+                                                              service_desc])))
+    else:
+        ackurl = None
     
     nt = Notifo(user, key)
     nt.send_notification(msg=msg, label='nagios', title=title, uri=ackurl)
