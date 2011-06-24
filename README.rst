@@ -120,7 +120,23 @@ look at the `Flask deployment guide`_.
 The final thing required is the nagifo configuration file. The nagifo config
 file is located at ``/etc/nagifo.conf``, and looks like::
 
-    .. include:: nagifo.conf
+    [default]
+    nagios_cmdfile = /usr/local/nagios/var/rw/nagios.cmd
+    secret_key = some_long_random_string22
+    external_url = nottaken.net:4444/nagifo
+
+You'll need to find where your nagios install puts its nagios.cmd file, and
+set ``nagios_cmdfile`` to the path of that file.
+
+The ``secret_key`` should be some long random string. The purpose of the string
+is to act like a password and prevent random strangers from acknowledging your
+alerts by simply guessing at the url.
+
+The ``external_url`` setting should be the publicly-accessible hostname of the
+server nagios is running on, the port (if required), and the path the wsgi
+script is running on. Since in the apache configuration example I direct the
+request to nagifo only if the URI starts with ``/nagifo``, the ``external_url``
+must include ``/nagifo``.
 
 
 .. _Notifo: http://notifo.com
