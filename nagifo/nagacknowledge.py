@@ -1,6 +1,6 @@
 from flask import Flask
 from nagext import NagExt
-from nagifo import port, cmdfile, verify_hash, config
+from nagifo import cmdfile, verify_hash, config
 from base64 import urlsafe_b64decode as b64dec
 app = Flask(__name__)
 
@@ -22,5 +22,5 @@ def root(data):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0')
 
