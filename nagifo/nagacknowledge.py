@@ -14,6 +14,8 @@ def root(data):
     if verify_hash(sechash, user, host, desc):
         ngext.acknowledge_svc_problem(host, desc, 0, 1, 0, user,
                                   'acknowledgement sent from phone')
+        return "acknowledged!"
+    return "what are you trying to pull?"
 
 
 if __name__ == '__main__':
