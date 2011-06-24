@@ -1,18 +1,20 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.1.3'
+version = '0.2.0'
+
+README = os.path.join(os.path.dirname(__file__),
+                      'README.rst')
 
 setup(name='nagifo',
       version=version,
       description="Nagios notifications through notifo",
-      long_description="""\
-Nagios notifications through notifo, plus a small webapp to acknowledge the alert""",
+      long_description=open(README).read(),
       classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='notifo flask nagios nagifo',
+      keywords='notifo flask nagios nagifo icinga',
       author='Dominic LoBue',
       author_email='dominic.lobue@gmail.com',
-      url='http://github.com/dlobue/nagifo',
+      url='https://github.com/dlobue/nagifo',
       license='GPLv3',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
