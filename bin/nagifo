@@ -5,9 +5,13 @@ from sys import argv, exit
 
 
 if __name__ == '__main__':
-    if len(argv) < 8:
-        print("Improper usage. This command is meant to be run by nagios."
-              "Refer to README for usage")
+    if len(argv) < 8 or len(argv) > 8:
+        print("Improper usage. Example usage:\n"
+              "%s <notifo username> <notifo API key> <notification type> "
+              "<problem server name> <service state> <service description> "
+              "<message details>\n"
+              "(yes, this is a lot, but this command isn't meant to be run by "
+              "a human. :))")
         exit(1)
     notifo_notify(*argv[1:])
 
