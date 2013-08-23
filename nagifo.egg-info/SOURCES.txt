@@ -1,5 +1,5 @@
 MANIFEST.in
-README
+README.rst
 nagifo.conf
 nagifo.wsgi
 setup.py
